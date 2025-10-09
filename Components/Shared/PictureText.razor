@@ -1,0 +1,17 @@
+﻿
+<div class="flex min-h-fit w-auto flex-row items-center p-4">
+	<div class="mr-4 w-28 content-center border-r-2 border-(--icon-color) pr-4 md:w-36">
+		<Image Src="@ImgSrc" />
+	</div>
+	<div class="w-full">
+		@ChildContent
+	</div>
+</div>
+
+@code {
+	[Parameter]
+	public required string ImgSrc { get; set; }
+
+	[Parameter]
+	public RenderFragment? ChildContent { get; set; }
+}

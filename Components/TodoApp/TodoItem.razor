@@ -1,0 +1,65 @@
+﻿@inject TodoService TodoService
+
+<label class="flex w-full flex-row justify-center px-5 text-left transition duration-300 ease-in @(_editMode ? "" : "group") @(_deleteAnim ? "-translate-x-1/4 opacity-0" : "")">
+	<div class="z-10 w-full max-w-4xl rounded-2xl bg-white/20 px-4 py-2 transition group-hover:-translate-x-5 group-hover:cursor-pointer group-has-checked:-translate-x-5 group-has-checked:outline-2 group-has-checked:outline-(--icon-color) group-has-checked:drop-shadow-2xl sm:p-6 @(_editMode ? "-translate-x-5 outline-(--icon-color) outline-2" : "")">
+		@if (_editMode) 
+		{
+			<div class="flex flex-col">
+				<input @bind="_editedTitle" class="mb-2 rounded border-2 pb-2 text-2xl" />
+				<textarea @bind="_editedDescription" class="field-sizing-content min-h-fit resize-none rounded border-2"></textarea>
+			</div>
+		} else {
+			<div class="w-full">
+				<h3 class="border-b-2 wrap-break-word md:pb-2">@Data.Title</h3>
+				<p class="wrap-break-word whitespace-pre-wrap">@Data.Description</p>
+			</div>
+		}
+	</div>
+	<div class="z-0 my-auto flex w-0 flex-col justify-center text-4xl opacity-0 transition group-hover:-translate-x-4 group-hover:opacity-100 group-has-checked:-translate-x-4 group-has-checked:opacity-100 @(_editMode ? "opacity-100 -translate-x-4" : "-translate-x-6")">
+		@if (_editMode) 
+		{
+			<a @onclick="SaveEdit" class="bi-check-square hover:text-green-500"></a>
+		}
+		else {
+			<a @onclick="Edit" class="bi-pencil-square hover:text-blue-500"></a>
+			<a @onclick="Delete" class="bi-check-square hover:text-green-500"></a>
+		}
+	</div>
+	<input type="checkbox" hidden="true"/>
+</label>
+
+@code {
+	[Parameter]
+	public required TodoItemData Data { get; set; }
+
+	[Parameter]
+	public EventCallback OnDelete { get; set; }
+
+	[Parameter]
+	public EventCallback OnEdit { get; set; }
+
+	private bool _editMode = false;
+	private bool _deleteAnim = false;
+	private string _editedTitle = "";
+	private string _editedDescription = "";
+
+	private void Edit() {
+		_editedTitle = Data.Title;
+		_editedDescription = Data.Description;
+		_editMode = true;
+	}
+
+	private async Task SaveEdit()
+	{
+		await TodoService.EditTodoAsync(Data, _editedTitle, _editedDescription);
+		_editMode = false;
+	}
+
+	private async Task Delete()
+	{
+		_deleteAnim = true;
+		await Task.Delay(300);
+		_deleteAnim = false;
+		await TodoService.DeleteTodoAsync(Data);
+	}
+}

@@ -1,0 +1,54 @@
+﻿
+@inject TodoService TodoService
+
+<div class="@Class fixed inset-x-0 bottom-0 h-5/6 rounded-lg border-2 border-(--icon-color) bg-(--primary-dark) px-6 py-6 transition-transform duration-200 ease-out xl:inset-x-40">
+	<div class="flex flex-row justify-between text-4xl">
+		<a @onclick="Cancel" class="bi-x-square hover:text-red-500"></a>
+		<a @onclick="Submit" class="bi-check-square hover:text-green-500"></a>
+	</div>
+	<input @bind="_newTitle" type="text" placeholder="Title" class="my-6 w-full rounded bg-white/20 p-2" />
+	<textarea @bind="_newDescription" placeholder="Description" class="h-1/2 w-full resize-none rounded bg-white/20 p-2"></textarea>
+</div>
+@code {
+	[Parameter]
+	public string? Class { get; set; }
+
+	[Parameter]
+	public EventCallback OnSubmit { get; set; }
+
+	[Parameter]
+	public EventCallback OnEmptySubmit { get; set; }
+
+	[Parameter]
+	public EventCallback OnCancel { get; set; }
+
+	private string _newTitle = "";
+	private string _newDescription = "";
+
+	private void ClearInputFields() 
+	{ 
+		_newTitle = "";
+		_newDescription = "";
+	}
+
+	private async Task Cancel() 
+	{
+		ClearInputFields();
+		await OnCancel.InvokeAsync();
+	}
+
+	private async Task Submit() 
+	{
+		if (string.IsNullOrWhiteSpace(_newTitle)) 
+		{
+			await OnEmptySubmit.InvokeAsync();
+		}
+		else 
+		{
+			await TodoService.CreateNewItem(_newTitle, _newDescription);
+			await OnSubmit.InvokeAsync();
+			ClearInputFields();
+		}
+	}
+
+}

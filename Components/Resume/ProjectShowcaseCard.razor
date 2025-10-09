@@ -1,0 +1,18 @@
+﻿<HoverCard Url="@Url">
+	<div class="flex w-full flex-col gap-3 px-6 py-3 text-left">
+		<h1 class="mb-0">@Title</h1>
+		@ChildContent
+	</div>
+</HoverCard>
+@code {
+
+	[Parameter]
+	public required string Title { get; set; }
+
+	[Parameter]
+	public string? Url { get; set; }
+
+	[Parameter]
+	public RenderFragment? ChildContent { get; set; }
+
+}

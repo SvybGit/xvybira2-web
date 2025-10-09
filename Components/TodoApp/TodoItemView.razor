@@ -1,0 +1,57 @@
+﻿
+@inject Blazored.LocalStorage.ILocalStorageService LocalStorage
+@inject TodoService TodoService
+
+<div class="relative flex size-full flex-col bg-(--primary-dark)">
+	@if (!_todoItemDataList.Any())
+	{
+		<div class="h-full content-center text-center">
+			<h2 class="mb-6">
+				Got something todo?
+			</h2>
+			<h3>
+				Click the plus sign to add a TODO item!
+			</h3>
+		</div>
+	}
+	else {
+		<div class="scrollbar-none h-full overflow-y-scroll pt-6 pb-32">
+			@foreach (TodoItemData todoItemData in _todoItemDataList)
+			{
+				<div class="mb-5 md:mx-14 lg:mx-24">
+					<TodoItem Data="todoItemData"/>
+				</div>
+			}
+		</div>
+	}
+	<div class="absolute bottom-0 z-20 h-fit w-full content-center rounded-b-xl border-t-2 border-(--icon-color) bg-white/20 py-2 text-center backdrop-blur">
+		<a @onclick="PopupToggle" class="bi-plus-circle-fill responsive-icon-sizing"></a>
+	</div>
+	<TopAlert @ref="_topAlert" />
+</div>
+@if (_showAddPopup) {
+	<div @onclick="PopupToggle" class="fixed top-0 left-0 z-20 h-screen w-screen backdrop-blur hover:cursor-pointer"></div>
+}
+<AddTodoItemPopup OnSubmit="PopupToggle" OnEmptySubmit="ShowEmptyTitleAlert" OnCancel="PopupToggle" Class=@(_showAddPopup ? "z-20" : "translate-y-full") />
+
+
+@code {
+	private bool _showAddPopup = false; // Move popup functionality into the popup component
+	private List<TodoItemData> _todoItemDataList = [];
+	private TopAlert? _topAlert;
+
+	protected override async Task OnInitializedAsync()
+	{
+		await TodoService.InitializeAsync();
+		TodoService.OnChange += StateHasChanged;
+		_todoItemDataList = TodoService.GetAll();
+	}
+
+	private void PopupToggle() => _showAddPopup = !_showAddPopup;
+
+	private Task ShowEmptyTitleAlert()
+	{
+		return _topAlert?.Show("Title cannot be empty", 3000) ?? Task.CompletedTask;
+	}
+
+}
