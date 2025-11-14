@@ -3,6 +3,11 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore <<< Source
 
+# Custom
+pnpm-lock.yaml
+tailwind.extension.json
+package-lock.json
+
 # User-specific files
 *.rsuser
 *.suo
