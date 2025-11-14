@@ -1,10 +1,15 @@
 {
   "devDependencies": {
-    "eslint": "^9.29.0",
+    "eslint": "^9.39.1",
     "tailwind-scrollbar": "^4.0.2"
   },
   "dependencies": {
-    "@tailwindcss/cli": "^4.1.14",
-    "tailwindcss": "^4.1.10"
+    "@tailwindcss/cli": "^4.1.17",
+    "tailwindcss": "^4.1.17",
+    "tailwindcss-animated": "^2.0.0"
+  },
+  "scripts": {
+    "tw-build": "tailwindcss -i ./tailwind.css -o ./wwwroot/tailwind.output.css --minify",
+    "tw-watch": "tailwindcss -i ./tailwind.css -o ./wwwroot/tailwind.output.css --watch"
   }
 }

@@ -1,4 +1,5 @@
 ﻿@import "tailwindcss";
+@import "tailwindcss-animated";
 
 @theme {
     --primary-dark: #121212;
@@ -6,17 +7,6 @@
     --secondary-orange: #8980F5;
     --text-color: #ffffff;
     --icon-color: #9F50FA;
-    --slide-l: slide-l 5s;
-
-    @keyframes slide-l {
-        0% {
-            transform: translateX(100%)
-        }
-
-        100% {
-            transform: translateX(0%)
-        }
-    }
 }
 
 .responsive-icon-sizing {
@@ -25,11 +15,11 @@
 
 @layer base {
     html {
-        @apply bg-(--primary-dark) text-lg font-semibold text-(--text-color) lg:text-xl xl:text-2xl;
+        @apply bg-(--primary-dark) text-lg font-light text-(--text-color) lg:text-xl xl:text-2xl;
     }
 
     h1 {
-        @apply mt-4 mb-4 max-w-2xl border-b-2 border-(--icon-color) pb-1 text-left text-xl text-shadow-lg sm:text-2xl lg:text-3xl;
+        @apply mt-4 mb-4 max-w-2xl border-b-2 border-(--icon-color) pb-1 text-center text-xl text-shadow-lg sm:text-2xl lg:text-3xl;
     }
 
     h2 {
