@@ -3,14 +3,14 @@
 
 @theme {
     --primary-dark: #121212;
-    --primary-light: #FFFFF;
+    --primary-light: #FFFFFF;
     --secondary-orange: #8980F5;
     --text-color: #ffffff;
     --icon-color: #9F50FA;
 }
 
 .responsive-icon-sizing {
-    @apply text-2xl xl:text-3xl;
+    @apply text-lg xl:text-xl;
 }
 
 @layer base {
@@ -19,7 +19,7 @@
     }
 
     h1 {
-        @apply mt-4 mb-4 max-w-2xl border-b-2 border-(--icon-color) pb-1 text-center text-xl text-shadow-lg sm:text-2xl lg:text-3xl;
+        @apply max-w-2xl border-b-2 border-(--icon-color) pb-1 text-center text-xl text-shadow-lg sm:text-2xl lg:text-3xl;
     }
 
     h2 {
@@ -35,12 +35,9 @@
     }
 
     a {
-        @apply cursor-pointer transition hover:scale-105 hover:animate-pulse hover:text-(--icon-color) active:scale-110 active:animate-pulse active:underline;
-    }
-
-    icon {
-        @apply text-2xl xl:text-3xl;
+        @apply cursor-pointer underline transition hover:scale-105 hover:animate-pulse hover:text-(--icon-color) active:scale-110 active:animate-pulse active:underline;
     }
 }
 
+@plugin "@iconify/tailwind4";
 @plugin 'tailwind-scrollbar';

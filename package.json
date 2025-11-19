@@ -1,5 +1,7 @@
 {
   "devDependencies": {
+    "@iconify/json": "^2.2.407",
+    "@iconify/tailwind4": "^1.1.0",
     "eslint": "^9.39.1",
     "tailwind-scrollbar": "^4.0.2"
   },
