@@ -24,9 +24,5 @@
   <ItemGroup>
     <Folder Include="Services\" />
   </ItemGroup>
-	
-  <Target Name="SetIndexHtml" BeforeTargets="Build">
-	  <Copy SourceFiles="wwwroot/index.$(Configuration).html" DestinationFiles="wwwroot/index.html" />
-  </Target>
 
 </Project>
