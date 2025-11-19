@@ -1,0 +1,9 @@
+﻿<TailwindAnimateOnScroll InAnimationClass="@AnimationClass">
+	<div class="text-4xl md:text-5xl @Class"></div>
+</TailwindAnimateOnScroll>
+
+@code {
+	[Parameter] public string? Class { get; set; }
+	[Parameter] public string? AnimationClass { get; set; }
+
+}
