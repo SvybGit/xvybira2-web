@@ -1,0 +1,16 @@
+﻿<div class="flex size-full flex-col rounded bg-white/20 py-6 text-center">
+	<TailwindAnimateOnScroll InnerClass="size-full" InAnimationClass="animate-fade-right animate-delay-100">
+		<h1 class="mx-14 mb-4">@Title</h1>
+	</TailwindAnimateOnScroll>
+	<div class="flex size-full flex-row justify-center gap-3 px-6">
+		@ChildContent
+	</div>
+</div>
+
+@code {
+	[Parameter] public string? Class { get; set; }
+
+	[Parameter] public required string Title { get; set; }
+
+	[Parameter] public RenderFragment? ChildContent { get; set; }
+}

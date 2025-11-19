@@ -1,0 +1,37 @@
+﻿<div class="h-dvh w-full">
+	<TailwindAnimateOnScroll Class="size-full"
+	                         InnerClass="flex size-full flex-col items-center"
+	                         InAnimationClass="animate-fade-down animate-ease-out animate-normal">
+
+		<div class="flex size-full flex-col items-center justify-center bg-radial from-(--icon-color)/30">
+			<div class="flex flex-col items-center">
+				<h1 class="w-full">My skills</h1>
+				<div class="grid w-full grid-cols-1 gap-6 p-6 lg:grid-cols-2">
+					<SkillCard Title="Programming">
+						<OnScrollIcon Class="icon-[nonicons--c-sharp-16]" AnimationClass="animate-fade-up animate-delay-[400ms]"/>
+						<OnScrollIcon Class="icon-[ri--java-fill]" AnimationClass="animate-fade-up animate-delay-[600ms]"/>
+						<OnScrollIcon Class="icon-[cib--python]" AnimationClass="animate-fade-up animate-delay-[800ms]"/>
+						<OnScrollIcon Class="icon-[akar-icons--typescript-fill]" AnimationClass="animate-fade-up animate-delay-[1000ms]"/>
+					</SkillCard>
+					<SkillCard Title="Web">
+						<OnScrollIcon Class="icon-[simple-icons--blazor] transition-all hover:bg-red" AnimationClass="animate-fade-up animate-delay-[400ms]"/>
+						<OnScrollIcon Class="icon-[ph--file-html-fill]" AnimationClass="animate-fade-up animate-delay-[600ms]"/>
+						<OnScrollIcon Class="icon-[bi--css]" AnimationClass="animate-fade-up animate-delay-[800ms]"/>
+						<OnScrollIcon Class="icon-[simple-icons--tailwindcss]" AnimationClass="animate-fade-up animate-delay-[1000ms]"/>
+					</SkillCard>
+					<SkillCard Title="Databases">
+						<OnScrollIcon Class="icon-[hugeicons--sql]" AnimationClass="animate-fade-up animate-delay-[400ms]"/>
+						<OnScrollIcon Class="icon-[lineicons--oracle]" AnimationClass="animate-fade-up animate-delay-[600ms]"/>
+					</SkillCard>
+					<SkillCard Title="Tools">
+						<OnScrollIcon Class="icon-[mdi--git]" AnimationClass="animate-fade-up animate-delay-[400ms]"/>
+						<OnScrollIcon Class="icon-[mdi--github]" AnimationClass="animate-fade-up animate-delay-[600ms]"/>
+						<OnScrollIcon Class="icon-[akar-icons--node-fill]" AnimationClass="animate-fade-up animate-delay-[800ms]"/>
+						<OnScrollIcon Class="icon-[cib--jetbrains]" AnimationClass="animate-fade-up animate-delay-[1000ms]"/>
+						<OnScrollIcon Class="icon-[devicon-plain--visualstudio]" AnimationClass="animate-fade-up animate-delay-[1200ms]"/>
+						<OnScrollIcon Class="icon-[cib--visual-studio-code]" AnimationClass="animate-fade-up animate-delay-[1400ms]"/>
+					</SkillCard>
+				</div>
+			</div></div>
+	</TailwindAnimateOnScroll>
+</div>
