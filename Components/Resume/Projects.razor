@@ -1,0 +1,42 @@
+﻿<div class="flex h-dvh h-fit min-h-dvh flex-col items-center justify-center gap-6 px-3 md:px-10 xl:px-14 2xl:px-20">
+	<h1 class="mt-14 w-full">My projects</h1>
+	<div class="flex flex-col items-center justify-center gap-3 rounded bg-linear-60 from-(--icon-color)/30 to-(--icon-color)/5 py-6">
+		<p class="text-center text-gray-200/75">Take a look at my <a>GitHub<Icon Class="icon-[mdi--github] self-center text-xl"/></a></p>
+		<div class="mx-3 grid grid-cols-1 gap-6 lg:grid-cols-2 xl:mx-10">
+			<ProjectShowcaseCard Url="https://github.com/SvybGit/xvybira2-web" Title="This website">
+				<p>
+					This project is built using the ASP.NET Core Blazor framework.
+					For styling, I am using the tailwind v4 CSS framework.
+					This website is hosted on an Apache webserver provided by our university.
+				</p>
+				<div class="flex flex-row gap-3">
+					<OnScrollIcon Class="icon-[simple-icons--blazor] transition-all hover:bg-red" AnimationClass="animate-fade-up animate-delay-[400ms]"/>
+					<OnScrollIcon Class="icon-[nonicons--c-sharp-16]" AnimationClass="animate-fade-up animate-delay-[600ms]"/>
+					<OnScrollIcon Class="icon-[simple-icons--tailwindcss]" AnimationClass="animate-fade-up animate-delay-[800ms]"/>
+				</div>
+			</ProjectShowcaseCard>
+			<ProjectShowcaseCard Url="https://github.com/SvybGit/git-like-db" Title="Git-like versioning system database">
+				<p>
+					An Oracle database school project script that simulates basic actions in a versioning system similar to
+					Git
+				</p>
+				<div class="flex h-12 flex-row gap-3">
+					<OnScrollIcon Class="icon-[mdi--git]" AnimationClass="animate-fade-up animate-delay-[400ms]"/>
+					<OnScrollIcon Class="icon-[hugeicons--sql]" AnimationClass="animate-fade-up animate-delay-[600ms]"/>
+					<OnScrollIcon Class="icon-[lineicons--oracle]" AnimationClass="animate-fade-up animate-delay-[800ms]"/>
+				</div>
+			</ProjectShowcaseCard>
+			<ProjectShowcaseCard Title="Todo app"
+			                     Url="https://github.com/SvybGit/xvybira2-web/tree/5582342a5233e595e41f1f7aed596bb518f50045/Components/TodoApp">
+				<p>
+					Made to get more familiar with the blazor framework and learn CRUD operations.
+				</p>
+				<a href="./todo">Try out the app</a>
+				<div class="flex h-12 flex-row gap-3">
+					<OnScrollIcon Class="icon-[nonicons--c-sharp-16]" AnimationClass="animate-fade-up animate-delay-[400ms]"/>
+					<OnScrollIcon Class="icon-[pajamas--todo-done]" AnimationClass="animate-fade-up animate-delay-[600ms]"/>
+				</div>
+			</ProjectShowcaseCard>
+		</div>
+	</div>
+</div>
