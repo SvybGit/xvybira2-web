@@ -1,21 +1,21 @@
 ﻿
-<div class="sticky top-0 z-50 h-fit w-full border-b-2 border-(--icon-color) bg-(--primary-dark)">
-    <div class="flex size-full flex-row items-center justify-between bg-white/20 px-2 py-2">
+<div class="fixed top-0 z-50 h-fit w-full border-b-2 border-(--icon-color) bg-(--primary-dark)">
+    <div class="flex size-full flex-row items-center justify-between px-2 py-2">
 		<a href="./" class="bi-house-fill responsive-icon-sizing"></a>
-		<h4>Šimon Vybíral</h4>
+		<p>Šimon Vybíral</p>
 		<a @onclick="MenuClicked" class="bi-justify responsive-icon-sizing"></a>
 	</div>
 </div>
 @if (_showMenu) {
     <div @onclick="MenuClicked" class="fixed z-40 size-full cursor-pointer backdrop-blur-md"></div>
 }
-<NavMenu Class=@((_showMenu ? " " : "translate-x-full "))>
+<NavMenu Class=@(_showMenu ? " " : "translate-x-full ")>
     <a @onclick="MenuClicked" href="./">About me</a>
     <a @onclick="MenuClicked" href="./todo">Todo app</a>
 </NavMenu>
 
 @code {
-    private bool _showMenu = false;
+    private bool _showMenu;
 
     private void MenuClicked() {
         _showMenu = !_showMenu;
