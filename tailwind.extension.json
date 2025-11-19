@@ -3,13 +3,13 @@
   "BuildFiles": [
     {
       "Input": "tailwind.css",
-      "Output": "wwwroot\\\\tailwind.output.css",
+      "Output": "./wwwroot/tailwind.output.css",
       "Behavior": "Default"
     }
   ],
   "PackageConfigurationFile": null,
   "CustomRegexes": {
-    "Razor": {
+    "Razor": { 
       "Override": false,
       "Values": []
     },
