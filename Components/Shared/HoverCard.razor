@@ -1,6 +1,6 @@
-﻿<button class="flex min-h-fit w-fit flex-row items-center rounded-2xl bg-white/20 transition duration-100 ease-in-out hover:scale-105 hover:cursor-pointer active:scale-105">
+﻿<button class="flex flex-row items-center rounded bg-white/20 transition duration-100 ease-in-out hover:scale-105 hover:cursor-pointer active:scale-105 @Class">
 	@if (Url != null) {
-		<a href="@Url" class="scale-100 text-white">
+		<a href="@Url" class="scale-100 animate-none text-white no-underline">
 			@ChildContent
 		</a>
 	} else
@@ -10,6 +10,9 @@
 </button>
 
 @code {
+	[Parameter]
+	public string? Class { get; set; }
+	
 	[Parameter]
 	public RenderFragment? ChildContent { get; set; }
 

@@ -1,0 +1,33 @@
+<AnimateOnScroll Class="@Class" Once="Once ?? false" AnimationDuration="TimeSpan.Zero" Offset="Offset ?? 0"
+                 OnVisibilityChanged="OnScroll"
+                 Animation="Animations.FadeIn"
+                 OutAnimation="Animations.FadeOut">
+    <div class="size-full @InnerClass @_animation">@ChildContent</div>
+</AnimateOnScroll>
+@* TODO make out animations work again  *@
+
+@code {
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+
+    [Parameter] public string? InAnimationClass { get; set; }
+
+    [Parameter] public string? OutAnimationClass { get; set; }
+
+    [Parameter] public bool? Once { get; set; }
+
+    [Parameter] public int? Offset { get; set; }
+
+    [Parameter] public string? Class { get; set; }
+    
+    [Parameter] public string? InnerClass { get; set; }
+
+
+    private string? _animation;
+    
+    private void OnScroll(bool visible)
+    {
+        _animation = visible ? InAnimationClass ?? "" : OutAnimationClass ?? "animate-fade animate-reverse";
+        Console.Out.WriteLine(_animation);
+    }
+
+}
